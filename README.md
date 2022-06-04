@@ -20,9 +20,13 @@ As a further step, we then used `Python's PySpark library` to see if Amazon's Vi
 
 ## Deliverable 1
 
-The objective of this part is to extract the Amazon Reviews dataset and turn it into a dataframe and create four Datasets that were then loaded into tables in Amazon's AWS RDS instance.  The tools used to complete deliverable 1 were `pgAdmin` and a `Colab` notebook.
+The objective of this part is to extract the Amazon Reviews dataset and turn it into a dataframe and create four Datasets that were then loaded into tables in Amazon's AWS RDS instance.  The tools used to complete deliverable 1 were `pgAdmin` and a [`Colab` notebook](https://github.com/Peteresis/Amazon_Vine_Analysis/blob/1590370a97b909650960e773f56185a766bb2fc4/Deliverable%201/Amazon_Reviews_ETL.ipynb). 
 
+### Tables of the datasets
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98360572/172028352-a4eb8b79-f2f8-433e-8335-7ffd9b764f8f.png" width="50%" height="50%">
+</p>
 
 
 # :two: Results: Using bulleted lists and images of DataFrames as support, address the following questions:
