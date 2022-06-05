@@ -71,6 +71,8 @@ The objective of this part is to extract the Amazon Reviews dataset and turn it 
 
 Using our knowledge of PySpark, Pandas, and/or SQL, we will determine if there is any bias towards reviews that were written as part of the Vine program. For this analysis, we will verify if having a paid Vine review makes a difference in the percentage of 5-star reviews that a product gets.
 
+The tool used to complete deliverable 2 was a [`Colab` notebook](https://github.com/Peteresis/Amazon_Vine_Analysis/blob/89c49e3e299dd1c481a38d0d807c1e3a94a60f60/Deliverable%202/Vine_Review_Analysis.ipynb).
+
 |   ⚠️ **NOTE: Please click on any image to zoom**     |
 | ----------- |
 
@@ -148,6 +150,8 @@ ratings_total_df = percent_votes_df.groupBy("vine").agg(
     <img src="https://user-images.githubusercontent.com/98360572/172030002-e3fe19f0-f388-4959-b5de-c341b1803970.png" width="50%" height="50%">
 </p>
 
+### The 
+
 ---
 # :two: Results: Using bulleted lists and images of DataFrames as support, address the following questions:
 
@@ -170,9 +174,6 @@ We must keep in mind that the product category selected for this analysis was 'p
 
 ---
 ## :four: References
-
----
-## :five: References
 
 **Module 16: Biga Data**, https://courses.bootcampspot.com/courses/1145/pages/16-dot-0-1-grasping-the-scope-of-big-data, :copyright: 2020-2021 Trilogy Education Services, Web 21 May 2022.
 
