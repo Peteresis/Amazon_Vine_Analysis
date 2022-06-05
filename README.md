@@ -84,14 +84,27 @@ Using our knowledge of PySpark, Pandas, and/or SQL, we will determine if there i
     <img src="https://user-images.githubusercontent.com/98360572/172029500-737c99c3-0985-4b56-8157-a9e7d8631430.png" width="50%" height="50%">
 </p>
 
+### Filtered DataFrame where the percentage of helpful_votes is equal to or greater than 50%
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/98360572/172029536-0599a4a0-29d8-4990-8cec-29926a987cf1.png" width="50%" height="50%">
+</p>
+
+### Filtered DataFrame where there is a Vine review
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/98360572/172029583-5304af16-3335-48af-a063-6ca61409397a.png" width="50%" height="50%">
+</p>
+
+### Filtered DataFrame where there isn’t a Vine review
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/98360572/172029611-56bdb943-760d-4fb9-9d47-318e37ee066f.png" width="50%" height="50%">
+</p>
 
 
 
 
 
-The data is filtered to create a DataFrame or table where the percentage of helpful_votes is equal to or greater than 50% (5 pt)
-The data is filtered to create a DataFrame or table where there is a Vine review (5 pt)
-The data is filtered to create a DataFrame or table where there isn’t a Vine review (5 pt)
+
+
 The total number of reviews, the number of 5-star reviews, and the percentage 5-star reviews are calculated for all Vine and non-Vine reviews (15 pt)
 
 
