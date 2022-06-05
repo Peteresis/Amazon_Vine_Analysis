@@ -8,7 +8,8 @@
 What exactly is meant by big data? When does data become "large"? Is it simply the size? A good rule of thumb to follow is that big data is defined as data that exceeds the capacity of operational databases.
 
 A retail item, for example, may have hundreds of reviews but is not big data because a local machine can parse it. But if, for example, we consider that Amazon has tens of thousands of items for sale, each with hundreds of reviews. In this case, you have a case for Big Data.
- 
+
+---
 # :one: Overview of the analysis: Explain the purpose of this analysis.
 
 Manufacturers and publishers can get product reviews through the Amazon Vine program. Small fees are paid to Amazon by companies like SellBy, which then offer Amazon Vine users with items in exchange for a product review.
@@ -16,7 +17,6 @@ Manufacturers and publishers can get product reviews through the Amazon Vine pro
 As part of this project, we had access to roughly 50 datasets. From clothing to wireless devices, each one discusses the pros and cons of a single product. The dataset selected for this analysis was **Pet Products**. After selecting the dataset, we used the PySpark Python library to perform an `ETL process` (**E**xtract, **T**ransform and **L**oad) to extract the information in the dataset, perform the neccesary transformations and load the data into `pgAdmin` via an `AWS RDS instance`.
 
 As a further step, we then used `Python's PySpark library` to see if Amazon's Vine members are more likely to give positive evaluations of the products.
-
 
 ## Deliverable 1
 
@@ -143,21 +143,30 @@ ratings_total_df = percent_votes_df.groupBy("vine").agg(
     count(when(col("star_rating") == 5, True)).alias("Total_5_Star_Reviews"),
     (count(when(col("star_rating") == 5, True))/count(col("vine"))*100).alias("%_5_Star_To_Total")).show()
 ```
-### Output Dataframe with the final results
+### D2.6 Output Dataframe with the final results
 <p align="center">
     <img src="https://user-images.githubusercontent.com/98360572/172030002-e3fe19f0-f388-4959-b5de-c341b1803970.png" width="50%" height="50%">
 </p>
 
-
+---
 # :two: Results: Using bulleted lists and images of DataFrames as support, address the following questions:
 
 ## :two::one: How many Vine reviews and non-Vine reviews were there?
 
+From Fig. D2.6 there are `170` vine reviews and `37,823` non-vine reviews.
+
 ## :two::two: How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+
+As shown in Fig. D2.6 there are `65` 5 stars vine reviews and `20,605` 5 stars non-vine reviews.
 
 ## :two::three:What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
 
+Again, from Fig. D2.6, the 5 stars reviews from vine users represent `38.24%` of the total.  The 5 stars reviews fron non-vine users are `54.48%` of the total non-vine 5 stars reviews.
 
+---
 ## :three: Summary: In your summary, state if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
 
+We must keep in mind that the product category selected for this analysis was 'pet products.' In this category, vine users were less generous in giving 5 stars reviews than non-vine users, indicating that there is no bias towards 5 stars reviews from vine users. However, because the results of this analysis are only for one of Amazon's more than fifty product categories, it would be necessary to repeat the analysis in other categories to compare the results before concluding whether or not there is a bias.
+
+---
 ## :four: References
