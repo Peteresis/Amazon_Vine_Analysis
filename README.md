@@ -170,3 +170,12 @@ We must keep in mind that the product category selected for this analysis was 'p
 
 ---
 ## :four: References
+
+---
+## :five: References
+
+**Module 16: Biga Data**, https://courses.bootcampspot.com/courses/1145/pages/16-dot-0-1-grasping-the-scope-of-big-data, :copyright: 2020-2021 Trilogy Education Services, Web 21 May 2022.
+
+**Program Creek: Python pyspark.sql.functions() Examples**, https://www.programcreek.com/python/example/98240/pyspark.sql.functions
+
+**Spark Apache: pyspark.pandas.DataFrame**, https://spark.apache.org/docs/latest/api/python/reference/pyspark.pandas/api/pyspark.pandas.DataFrame.html
