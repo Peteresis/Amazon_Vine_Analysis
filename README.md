@@ -27,7 +27,7 @@ The objective of this part is to extract the Amazon Reviews dataset and turn it 
 |   ⚠️ **NOTE: Please click on any image to zoom**     |
 | ----------- |
 
-### customers_table
+### D1.1 customers_table
 <p align="center">
 <div class="row">
   <div class="column">
@@ -37,7 +37,7 @@ The objective of this part is to extract the Amazon Reviews dataset and turn it 
 </div>
 </p>
 
-### products_table
+### D1.2 products_table
 <p align="center">
 <div class="row">
   <div class="column">
@@ -47,7 +47,7 @@ The objective of this part is to extract the Amazon Reviews dataset and turn it 
 </div>
 </p>
 
-### review_id_table
+### D1.3 review_id_table
 <p align="center">
 <div class="row">
   <div class="column">
@@ -57,7 +57,7 @@ The objective of this part is to extract the Amazon Reviews dataset and turn it 
 </div>
 </p>
 
-### vine_table
+### D1.4 vine_table
 <p align="center">
 <div class="row">
   <div class="column">
@@ -74,40 +74,79 @@ Using our knowledge of PySpark, Pandas, and/or SQL, we will determine if there i
 |   ⚠️ **NOTE: Please click on any image to zoom**     |
 | ----------- |
 
-### vine_table
+### D2.1 vine_table
 <p align="center">
     <img src="https://user-images.githubusercontent.com/98360572/172029428-cdff3338-b43a-4bfe-b2d7-45cfaf92d636.png" width="50%" height="50%">
 </p>
 
-### Filtered DataFrame where there are 20 or more total votes
+### D2.2 Filtered DataFrame where there are 20 or more total votes
 <p align="center">
     <img src="https://user-images.githubusercontent.com/98360572/172029500-737c99c3-0985-4b56-8157-a9e7d8631430.png" width="50%" height="50%">
 </p>
 
-### Filtered DataFrame where the percentage of helpful_votes is equal to or greater than 50%
+### D2.3 Filtered DataFrame where the percentage of helpful_votes is equal to or greater than 50%
 <p align="center">
     <img src="https://user-images.githubusercontent.com/98360572/172029536-0599a4a0-29d8-4990-8cec-29926a987cf1.png" width="50%" height="50%">
 </p>
 
-### Filtered DataFrame where there is a Vine review
+### D2.4 Filtered DataFrame where there is a Vine review
 <p align="center">
     <img src="https://user-images.githubusercontent.com/98360572/172029583-5304af16-3335-48af-a063-6ca61409397a.png" width="50%" height="50%">
 </p>
 
-### Filtered DataFrame where there isn’t a Vine review
+### D2.5 Filtered DataFrame where there isn’t a Vine review
 <p align="center">
     <img src="https://user-images.githubusercontent.com/98360572/172029611-56bdb943-760d-4fb9-9d47-318e37ee066f.png" width="50%" height="50%">
 </p>
 
+### D2.6 The total number of reviews, the number of 5-star reviews, and the percentage 5-star reviews calculated for all Vine and non-Vine reviews
 
+### In this phase, we can calculate each partial result as a variable using functions and then conduct the total calculations using formulas. For example, to count the number of paid 5-star ratings, we may use the `filter` and `count()` functions like this:
 
+```
+paid_five_star_reviews = paid_df.filter(paid_df.star_rating == 5).count()
+```
 
+### Then, we can use a formula like the following to calculate the 5 stars review percentage:
 
+```
+paid_five_star_percent = (paid_five_star_reviews / total_paid_reviews) * 100
+```
 
+### Although there is nothing wrong with this approach, `pyspark` has powerful `SQL functions` that provide a much more elegant solution.
 
-The total number of reviews, the number of 5-star reviews, and the percentage 5-star reviews are calculated for all Vine and non-Vine reviews (15 pt)
+### After some research online, it is possible to combine the following functions of `pyspark SQL`:
 
+* `col`: Returns a Column based on the given column name.  Source [Python pyspark.sql.functions.col() Examples](https://www.programcreek.com/python/example/98233/pyspark.sql.functions.col)
+* `when`: Evaluates a list of conditions and returns one of multiple possible result expressions.  Source 
+* `count`: Aggregate function: returns the number of items in a group. Source [Python pyspark.sql.functions.count() Examples](https://www.programcreek.com/python/example/98240/pyspark.sql.functions.count)
+* `lit`: Creates a Column of literal value. Source [Python pyspark.sql.functions.lit() Examples](https://www.programcreek.com/python/example/98238/pyspark.sql.functions.lit)
+* `groupBy`: A groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups. Source [pyspark.pandas.DataFrame.groupby](https://spark.apache.org/docs/latest/api/python/reference/pyspark.pandas/api/pyspark.pandas.DataFrame.groupby.html)
+* `agg`: Aggregate using one or more operations over the specified axis. Source [pyspark.pandas.DataFrame.agg](https://spark.apache.org/docs/latest/api/python/reference/pyspark.pandas/api/pyspark.pandas.DataFrame.agg.html)
+* `alias`: Returns a column aliased with a new name or names (in the case of expressions that return more than one column, such as explode).  Source [pyspark.sql.Column.alias](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.Column.alias.html)
 
+### In our case, we will execute the operations directly on the `percent_votes_df` dataframe and place the outcome in the `ratings_total_df` dataframe, making the process shorter and the information easier to follow and understand.
+
+### The output dataframe 'ratings_total_df' will have three columns and two rows.
+
+* Column 1: `vine` it groups the two possible values from the `vine` column of the `percent_votes_df`. The only possible values are `Y` and `N`.  Code used: `percent_votes_df.groupBy("vine").agg(`  The `agg` function aggregates the operations over several axis (columns).
+* Column 2: `Total_Reviews` count the total number of reviews in the `percent_votes_df` dataframe with a `Y` `vine` and the total with a `N` `vine`.  The results are written in a column named `Total_Reviews` using the alias function.  Code used: `count(col("vine")).alias("Total_Reviews")` 
+* Column 3: `Total_5_Star_Reviews` uses `count`, `when`, `col` and `alias` to provide the total of 5 star ratings with the `Y` value and `N` value in `vine`.  Code used: `count(when(col("star_rating") == 5, True)).alias("Total_5_Star_Reviews")`
+* Column 4: `%_5_Star_To_Total`  This column also uses `count`, `when`, `col` and `alias` and makes the calculations to provide the total percentages of 5 star ratings with the `Y` value and `N` value in `vine`.  Code used: `(count(when(col("star_rating") == 5, True))/count(col("vine"))*100).alias("%_5_Star_To_Total"))`
+* Finally the function `show()` prints the output dataframe on the screen.
+
+### The complete code is in the following block
+```
+from pyspark.sql.functions import col,when,count,lit
+ratings_total_df = percent_votes_df.groupBy("vine").agg(
+    count(col("vine")).alias("Total_Reviews"),
+    count(when(col("star_rating") == 5, True)).alias("Total_5_Star_Reviews"),
+    (count(when(col("star_rating") == 5, True))/count(col("vine"))*100).alias("%_5_Star_To_Total")).show()
+```
+### Output Dataframe with the final results
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/98360572/172030002-e3fe19f0-f388-4959-b5de-c341b1803970.png" width="50%" height="50%">
+</p>
 
 
 # :two: Results: Using bulleted lists and images of DataFrames as support, address the following questions:
