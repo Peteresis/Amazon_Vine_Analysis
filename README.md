@@ -24,9 +24,77 @@ The objective of this part is to extract the Amazon Reviews dataset and turn it 
 
 ### Tables of the datasets
 
+|   ⚠️ **NOTE: Please click on any image to zoom**     |
+| ----------- |
+
+### customers_table
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/98360572/172028352-a4eb8b79-f2f8-433e-8335-7ffd9b764f8f.png" width="50%" height="50%">
+<div class="row">
+  <div class="column">
+    <img src="https://user-images.githubusercontent.com/98360572/172028452-44d9522d-f8a1-4e34-9140-915cd42a47c2.png" width="20%" height="100%">
+    <img src="https://user-images.githubusercontent.com/98360572/172028352-a4eb8b79-f2f8-433e-8335-7ffd9b764f8f.png" width="75%" height="75%">
+  </div>
+</div>
 </p>
+
+### products_table
+<p align="center">
+<div class="row">
+  <div class="column">
+    <img src="https://user-images.githubusercontent.com/98360572/172028757-5b6d989c-347e-4f16-ad53-346fce7da786.png" width="20%" height="100%">
+    <img src="https://user-images.githubusercontent.com/98360572/172028739-46cdfd0f-17b8-4107-9f15-514518300cfa.png" width="65%" height="65%">
+  </div>
+</div>
+</p>
+
+### review_id_table
+<p align="center">
+<div class="row">
+  <div class="column">
+    <img src="https://user-images.githubusercontent.com/98360572/172028868-7922a0ab-8dae-4b7d-beb1-41a8224f5e36.png" width="40%" height="100%">
+    <img src="https://user-images.githubusercontent.com/98360572/172028904-6a38382d-50d3-4ceb-ac52-ac1fed6f50fc.png" width="50%" height="110%">
+  </div>
+</div>
+</p>
+
+### vine_table
+<p align="center">
+<div class="row">
+  <div class="column">
+    <img src="https://user-images.githubusercontent.com/98360572/172029042-a3207a29-51f1-4e8a-97aa-43b181cad713.png" width="40%" height="100%">
+    <img src="https://user-images.githubusercontent.com/98360572/172029049-b052e759-27da-4f6d-9dac-8e731f4805a6.png" width="50%" height="110%">
+  </div>
+</div>
+</p>
+
+## Deliverable 2
+
+Using our knowledge of PySpark, Pandas, and/or SQL, we will determine if there is any bias towards reviews that were written as part of the Vine program. For this analysis, we will verify if having a paid Vine review makes a difference in the percentage of 5-star reviews that a product gets.
+
+|   ⚠️ **NOTE: Please click on any image to zoom**     |
+| ----------- |
+
+### vine_table
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/98360572/172029428-cdff3338-b43a-4bfe-b2d7-45cfaf92d636.png" width="50%" height="50%">
+</p>
+
+### Filtered DataFrame where there are 20 or more total votes
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/98360572/172029500-737c99c3-0985-4b56-8157-a9e7d8631430.png" width="50%" height="50%">
+</p>
+
+
+
+
+
+
+The data is filtered to create a DataFrame or table where the percentage of helpful_votes is equal to or greater than 50% (5 pt)
+The data is filtered to create a DataFrame or table where there is a Vine review (5 pt)
+The data is filtered to create a DataFrame or table where there isn’t a Vine review (5 pt)
+The total number of reviews, the number of 5-star reviews, and the percentage 5-star reviews are calculated for all Vine and non-Vine reviews (15 pt)
+
+
 
 
 # :two: Results: Using bulleted lists and images of DataFrames as support, address the following questions:
