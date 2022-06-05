@@ -166,7 +166,7 @@ As shown in Fig. D2.6 there are `65` 5 stars vine reviews and `20,605` 5 stars n
 Again, from Fig. D2.6, the 5 stars reviews from vine users represent `38.24%` of the total.  The 5 stars reviews fron non-vine users are `54.48%` of the total non-vine 5 stars reviews.
 
 ---
-## :three: Summary: In your summary, state if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
+## :three: Summary: State if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
 
 We must keep in mind that the product category selected for this analysis was 'pet products.' In this category, vine users were less generous in giving 5 stars reviews than non-vine users, indicating that there is no bias towards 5 stars reviews from vine users. However, because the results of this analysis are only for one of Amazon's more than fifty product categories, it would be necessary to repeat the analysis in other categories to compare the results before concluding whether or not there is a bias.
 
