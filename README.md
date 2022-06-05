@@ -150,8 +150,6 @@ ratings_total_df = percent_votes_df.groupBy("vine").agg(
     <img src="https://user-images.githubusercontent.com/98360572/172030002-e3fe19f0-f388-4959-b5de-c341b1803970.png" width="50%" height="50%">
 </p>
 
-### The 
-
 ---
 # :two: Results: Using bulleted lists and images of DataFrames as support, address the following questions:
 
